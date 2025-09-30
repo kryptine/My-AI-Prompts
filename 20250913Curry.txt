@@ -1,0 +1,858 @@
+Can you please tell me how to use Curry's paradox to justify the accelerationist stance by defining `A` and `B` properly in `(A = (A -> B)) -> B` when `=` is treated as Boolean equality, `->` as material implication/conditional, and this is proven as `Your Input
+Simplify the boolean expression 
+(
+A
+↔
+(
+A
+→
+B
+)
+)
+→
+B
+(A↔(A→B))→B.
+
+Solution
+Apply the formula 
+x
+→
+y
+=
+x
+‾
++
+y
+x→y= 
+x
+ +y with 
+x
+=
+A
+x=A and 
+y
+=
+B
+y=B:
+
+(
+A
+↔
+(
+A
+→
+B
+)
+)
+→
+B
+=
+(
+A
+↔
+(
+A
+‾
++
+B
+)
+)
+→
+B
+(A↔(A→B))→B=(A↔( 
+A
+ +B))→B
+Apply the formula 
+x
+→
+y
+=
+x
+‾
++
+y
+x→y= 
+x
+ +y with 
+x
+=
+A
+↔
+(
+A
+‾
++
+B
+)
+x=A↔( 
+A
+ +B) and 
+y
+=
+B
+y=B:
+
+(
+(
+A
+↔
+(
+A
+‾
++
+B
+)
+)
+→
+B
+)
+=
+(
+A
+↔
+(
+A
+‾
++
+B
+)
+‾
++
+B
+)
+((A↔( 
+A
+ +B))→B)=( 
+A↔( 
+A
+ +B)
+​
+ +B)
+Apply the formula 
+x
+↔
+y
+=
+(
+x
+‾
++
+y
+)
+⋅
+(
+x
++
+y
+‾
+)
+x↔y=( 
+x
+ +y)⋅(x+ 
+y
+​
+ ) with 
+x
+=
+A
+x=A and 
+y
+=
+A
+‾
++
+B
+y= 
+A
+ +B:
+
+(
+A
+↔
+(
+A
+‾
++
+B
+)
+)
+‾
++
+B
+=
+(
+(
+A
+‾
++
+(
+A
+‾
++
+B
+)
+)
+⋅
+(
+A
++
+A
+‾
++
+B
+‾
+)
+)
+‾
++
+B
+(A↔( 
+A
+ +B))
+​
+ +B= 
+(( 
+A
+ +( 
+A
+ +B))⋅(A+ 
+A
+ +B
+​
+ ))
+​
+ +B
+Apply the idempotent law 
+x
++
+x
+=
+x
+x+x=x with 
+x
+=
+A
+‾
+x= 
+A
+ :
+
+(
+(
+A
+‾
++
+A
+‾
+)
++
+B
+)
+⋅
+(
+A
++
+A
+‾
++
+B
+‾
+)
+‾
++
+B
+=
+(
+(
+A
+‾
+)
++
+B
+)
+⋅
+(
+A
++
+A
+‾
++
+B
+‾
+)
+‾
++
+B
+(( 
+A
+ + 
+A
+ )+B)⋅(A+ 
+A
+ +B
+​
+ )
+​
+ +B= 
+(( 
+A
+ )+B)⋅(A+ 
+A
+ +B
+​
+ )
+​
+ +B
+Apply de Morgan's theorem 
+x
+⋅
+y
+‾
+=
+x
+‾
++
+y
+‾
+x⋅y
+​
+ = 
+x
+ + 
+y
+​
+  with 
+x
+=
+A
+‾
++
+B
+x= 
+A
+ +B and 
+y
+=
+A
++
+A
+‾
++
+B
+‾
+y=A+ 
+A
+ +B
+​
+ :
+
+(
+(
+A
+‾
++
+B
+)
+⋅
+(
+A
++
+A
+‾
++
+B
+‾
+)
+‾
+)
++
+B
+=
+(
+A
+‾
++
+B
+‾
++
+A
++
+A
+‾
++
+B
+‾
+‾
+)
++
+B
+( 
+( 
+A
+ +B)⋅(A+ 
+A
+ +B
+​
+ )
+​
+ )+B=( 
+A
+ +B
+​
+ + 
+A+ 
+A
+ +B
+​
+ 
+​
+ )+B
+Apply de Morgan's theorem 
+x
++
+y
+‾
+=
+x
+‾
+⋅
+y
+‾
+x+y
+​
+ = 
+x
+ ⋅ 
+y
+​
+  with 
+x
+=
+A
+‾
+x= 
+A
+  and 
+y
+=
+B
+y=B:
+
+(
+A
+‾
++
+B
+‾
+)
++
+A
++
+(
+A
+‾
++
+B
+‾
+)
+‾
++
+B
+=
+(
+A
+‾
+‾
+⋅
+B
+‾
+)
++
+A
++
+(
+A
+‾
+‾
+⋅
+B
+‾
+)
+‾
++
+B
+( 
+A
+ +B
+​
+ )+ 
+A+( 
+A
+ +B
+​
+ )
+​
+ +B=( 
+A
+ 
+ ⋅ 
+B
+ )+ 
+A+( 
+A
+ 
+ ⋅ 
+B
+ )
+​
+ +B
+Apply the double negation (involution) law 
+x
+‾
+‾
+=
+x
+x
+ 
+ =x with 
+x
+=
+A
+x=A:
+
+(
+(
+A
+‾
+‾
+)
+⋅
+B
+‾
+)
++
+A
++
+(
+(
+A
+‾
+‾
+)
+⋅
+B
+‾
+)
+‾
++
+B
+=
+(
+(
+A
+)
+⋅
+B
+‾
+)
++
+A
++
+(
+(
+A
+)
+⋅
+B
+‾
+)
+‾
++
+B
+(( 
+A
+ 
+ )⋅ 
+B
+ )+ 
+A+(( 
+A
+ 
+ )⋅ 
+B
+ )
+​
+ +B=((A)⋅ 
+B
+ )+ 
+A+((A)⋅ 
+B
+ )
+​
+ +B
+Apply the absorption law 
+x
++
+(
+x
+⋅
+y
+)
+=
+x
+x+(x⋅y)=x with 
+x
+=
+A
+x=A and 
+y
+=
+B
+‾
+y= 
+B
+ :
+
+(
+A
+⋅
+B
+‾
+)
++
+(
+A
++
+(
+A
+⋅
+B
+‾
+)
+)
+‾
++
+B
+=
+(
+A
+⋅
+B
+‾
+)
++
+(
+A
+)
+‾
++
+B
+(A⋅ 
+B
+ )+ 
+(A+(A⋅ 
+B
+ ))
+​
+ +B=(A⋅ 
+B
+ )+ 
+(A)
+​
+ +B
+Apply the commutative law:
+
+(
+(
+A
+⋅
+B
+‾
+)
++
+A
+‾
++
+B
+)
+=
+(
+A
+‾
++
+(
+A
+⋅
+B
+‾
+)
++
+B
+)
+((A⋅ 
+B
+ )+ 
+A
+ +B)=( 
+A
+ +(A⋅ 
+B
+ )+B)
+Apply the redundancy law 
+x
++
+(
+x
+‾
+⋅
+y
+)
+=
+x
++
+y
+x+( 
+x
+ ⋅y)=x+y with 
+x
+=
+A
+‾
+x= 
+A
+  and 
+y
+=
+B
+‾
+y= 
+B
+ :
+
+(
+A
+‾
++
+(
+A
+⋅
+B
+‾
+)
+)
++
+B
+=
+(
+A
+‾
++
+B
+‾
+)
++
+B
+( 
+A
+ +(A⋅ 
+B
+ ))+B=( 
+A
+ + 
+B
+ )+B
+Apply the commutative law:
+
+(
+A
+‾
++
+B
+‾
++
+B
+)
+=
+(
+A
+‾
++
+B
++
+B
+‾
+)
+( 
+A
+ + 
+B
+ +B)=( 
+A
+ +B+ 
+B
+ )
+Apply the complement law 
+x
++
+x
+‾
+=
+1
+x+ 
+x
+ =1 with 
+x
+=
+B
+x=B:
+
+A
+‾
++
+(
+B
++
+B
+‾
+)
+=
+A
+‾
++
+(
+1
+)
+A
+ +(B+ 
+B
+ )= 
+A
+ +(1)
+Apply the dominant (null, annulment) law 
+x
++
+1
+=
+1
+x+1=1 with 
+x
+=
+A
+‾
+x= 
+A
+ :
+
+(
+A
+‾
++
+1
+)
+=
+(
+1
+)
+( 
+A
+ +1)=(1)`?
