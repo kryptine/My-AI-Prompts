@@ -1,0 +1,1 @@
+What I mean is, what happens to the speed limit and the differential between private monitoring and public monitoring when the curvature beta goes to infinity? What if beta is 3?

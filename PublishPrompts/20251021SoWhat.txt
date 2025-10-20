@@ -1,0 +1,1 @@
+So what is the "linear frontier" beta = infinity thing for anyway, if the stuff I care most about (public goods) is almost always beta = 2 and occasionally 1 < beta < 2? What kind of economic models does it apply to?

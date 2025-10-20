@@ -1,0 +1,69 @@
+No, Kinsella said that "One problem with the creation-based approach is that it
+almost invariably protects only certain types of creations—
+unless, that is, every single useful idea one comes up with is
+subject to ownership (more on this below). But the distinction
+between the protectable and the unprotectable is necessarily
+arbitrary. For example, philosophical or mathematical or
+scientific truths cannot be protected under current law on the
+grounds that commerce and social intercourse would grind to a
+halt were every new phrase, philosophical truth, and the like
+considered the exclusive property of its creator. For this reason,
+patents
+can
+be
+obtained
+only
+for
+so-called
+“practical
+applications” of ideas, but not for more abstract or theoretical
+ideas. Rand agrees with this disparate treatment, in attempting
+to distinguish between an unpatentable discovery and a
+patentable
+invention.
+She
+argues
+that
+a
+“scientific
+or
+philosophical discovery, which identifies a law of nature, a
+principle or a fact of reality not previously known” is not created
+by the discoverer.
+But the distinction between creation and discovery is not
+clearcut or rigorous.46 Nor is it clear why such a distinction,
+even if clear, is ethically relevant in defining property rights. No
+one creates matter; they just manipulate and grapple with it
+according to physical laws. In this sense, no one really creates
+anything. They merely rearrange matter into new arrangements
+and patterns. An engineer who invents a new mousetrap has
+rearranged existing parts to provide a function not previously
+performed. Others who learn of this new arrangement can now
+also make an improved mousetrap. Yet the mousetrap merely
+follows laws of nature. The inventor did not invent the matter
+out of which the mousetrap is made, nor the facts and laws
+exploited to make it work.
+Similarly, Einstein’s “discovery” of the relation E=mc2,
+once known by others, allows them to manipulate matter in a
+more efficient way. Without Einstein’s, or the inventor’s, efforts,
+others would have been ignorant of certain causal laws, of ways
+matter can be manipulated and utilized. Both the inventor and
+the theoretical scientist engage in creative mental effort to
+produce useful, new ideas. Yet one is rewarded, and the other is
+not. In one recent case, the inventor of a new way to calculate a
+number representing the shortest path between two points—an
+extremely useful technique—was not given patent protection
+because this was “merely” a mathematical algorithm.47But it is
+arbitrary and unfair to reward more practical inventors and
+entertainment providers, such as the engineer and songwriter,
+and to leave more theoretical science and math researchers and
+philosophers unrewarded. The distinction is inherently vague,
+arbitrary, and unjust.
+Moreover, adopting a limited term for IP rights, as opposed
+to a perpetual right, also requires arbitrary rules. For example,
+patents last for twenty years from the filing date, while
+copyrights last, in the case of individual authors, for seventy
+years past the author’s death. No one can seriously maintain
+that nineteen years for a patent is too short, and twenty-one
+years too long, any more than the current price for a gallon of
+milk can be objectively classified as too low or too high." in *Against Intellectual Property*, also, what I mean is that the weird case of the curvature factor of the frontier beta being greater than 2 but less than infinity is impossible when it comes to this kind of public goods, such that the only cases are 1 < beta < 2 for IP that can be crowded out such as business models, pop culture (because originality is a plus in this market, reducing beta from 2 by at least a small amount), beta = 2 (for functional ideas and inventions) and beta = infinity (if side payments are possible) but never the weird case in which private monitoring can become better than public monitoring

@@ -1,1 +1,0 @@
-Can you adjoin an initial and/or a terminal object to any category? Is there a construction which allows you to adjoin initial and terminal objects to any category that: 1. works uniformly without object checks, 2. adds genuine structure to categories without them, 3. is idempotent with categories that already have initial and terminal objects?

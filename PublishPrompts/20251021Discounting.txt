@@ -1,0 +1,1 @@
+Also, am I right to see that private monitoring (according to "monitoring vs. discounting") becomes unworkable as the number of agents grows large, and since IP rights and exclusions are based on private monitoring and topic-based punishments instead of agent-based ones, you get the idea?

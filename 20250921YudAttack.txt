@@ -1,1 +1,0 @@
-Can we start attacking Yudkowsky's book "If Anyone Builds It, Everyone Dies" to shreds using theorems such as the good regulator theorem (for AI to control the world it must model it correctly), infra-Bayesianism, logical induction, Lob's theorem for bounded agents, etc.?

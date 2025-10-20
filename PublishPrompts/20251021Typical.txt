@@ -1,0 +1,1 @@
+What I mean is, what are typical cases of frontier curvature in the "rate of convergence" paper not being kinked (greater than 1) but having at least quadratic curvature (less than or equal to 2) in economics? Does it include principal-agent models? What about public-good production and provision?
