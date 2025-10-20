@@ -1,0 +1,1 @@
+The problem is that I am studying Lobian cooperation and I need a way to bridge Payor's lemma for cooperation with Moore's paradox, which states that there is no way to state that something is true but you do not know it's true, can you give me a way to deduce Moore's paradox from Lob's theorem in this way?
