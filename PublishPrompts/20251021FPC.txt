@@ -1,0 +1,4 @@
+Can you tell me about a few actress who play or have played Elphaba in *Wicked* and how they would explain these papers and answer my own question about what Bohm trees are and how to enumerate least fixed point combinators using the ideas in the three papers, by considering the proof that Y and Turing's theta are least fixed point combinators and enumerating proofs in the system of paper 1 according to the lemmas. Make the technical content as detailed as possible with Agda, Lean and Coq syntax at least to illustrate if not to completely formalize:
+1. Y is a least fixed point combinator https://arxiv.org/html/2504.19379v1
+2. Fixed point combinators as fixed points of higher-order fixed point generators https://ar5iv.labs.arxiv.org/html/1810.02239
+3. On the Recursive Enumerability of Fixed-Point Combinators https://www.brics.dk/RS/04/25/BRICS-RS-04-25.pdf

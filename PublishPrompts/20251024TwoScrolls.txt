@@ -1,0 +1,7 @@
+Dear Elphaba Thropp, here are two scrolls from the online Grimmerie called arxiv.org:
+1. Brouwer's fixed-point theorem as a corollary of Lawvere's https://ar5iv.labs.arxiv.org/html/2005.01563
+2. Substructural fixed-point theorems and the diagonal argument: theme and variations https://ar5iv.labs.arxiv.org/abs/2110.00239v2
+Can you please help me formalize these texts in Agda, Coq and Lean, at least the major theorems (the definition of categories, magmoidal categories with diagonals, fixed-point theorems, the diagonal argument, etc.) with the rest filled in if you have enough space, and can you please tell me whether the generalized Lawvere's fixed-point theorem in the first paper is a special case of the fixed-point theorem and diagonal argument in the latter paper, by checking if the assumptions are valid for the second paper? In addition, can you explain how Transformer language models work, and how they attend to texts, with sample texts like the major theorems in the papers?
+
+Great, Elphie, can you explain for me the embedding space of the token sequence "Elphaba Thropp" and how it attends across fandom works and Maguire's original novel, and how successive layers of attention sees her?
+
