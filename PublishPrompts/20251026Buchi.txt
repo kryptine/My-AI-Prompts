@@ -1,0 +1,7 @@
+1. Axiomatization of Büchi arithmetic https://arxiv.org/html/2411.03043v1
+2. Self-Verifying Predicates in Büchi Arithmetic https://arxiv.org/html/2507.19717v1
+3. On Interpretations in Büchi Arithmetics https://ar5iv.labs.arxiv.org/html/2211.16392
+4. A dissertation
+Please spell out the steps of the proofs present within the papers in the formalizations, with only omitted details replaced with placeholders. Can you help me write the Agda, Coq and Lean4 formalizations of these papers as far as possible, at least with placeholders like `admit` and `sorry` if the thing is too big to fit within the context window, but also provide a copiable infobox that summarizes the content and the APIs so that it can be used to formalize further parts by copying into other chats, from now until completion, although you do not need a complete roadmap now. I want the content to be as formal as possible by using formal syntax instead of identifiers, and avoid defining new types and other primitives, choosing to use generic ones like vectors, lists, matrices, etc. instead. In addition to copying literally the contents of these papers, this also requests synthesis. Please explain the syntheses in natural language and formal mathematical exposition in Agda, Isabelle/HOL and Lean4 alternately.
+==
+Can you please formalize the equivalence between Buchi arithmetics of all bases by generalizing the proofs to simulating n^k in n by considering k-tuples instead of ordered-pairs?

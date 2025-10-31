@@ -1,0 +1,3 @@
+1. On the computational complexity of ethics: moral tractability for minds and machines https://link.springer.com/article/10.1007/s10462-024-10732-3
+2. Whose morality? Which rationality? Challenging artificial intelligence as a remedy for the lack of moral enhancement https://link.springer.com/article/10.1057/s41599-020-00614-8
+Can you tell me exactly which formal mathematical theories, concepts, systems and theorems are mentioned in these papers? Can you give me a comprehensive list of all formal concepts within these papers? Can you tell me what kind of genre these papers belong to, philosophical waxing, formal argumentation, or just nonsense?

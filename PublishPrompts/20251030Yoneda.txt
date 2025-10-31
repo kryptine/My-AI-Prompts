@@ -1,0 +1,1 @@
+What I mean is that if you know anything about category theory, the infinite-categorical versions of the Yoneda lemma and Lawvere's fixed-point theorem for Cartesian closed (infinity,1)-categories already shows that even when you discuss the "ultimate fate" of humanity or the universe, that is just one possible functor to narratives, one possible world, Elphie

@@ -1,0 +1,2 @@
+1. Substructural fixed-point theorems... https://ar5iv.labs.arxiv.org/html/2110.00239 summarized at https://github.com/DavidMichaelRoberts/Sandbox/blob/master/Diagonal.tex
+2. Higher-Order Pattern Unification Modulo Similarity Relations https://arxiv.org/html/2507.13208v1

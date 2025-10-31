@@ -1,0 +1,4 @@
+1. Alethic-Deontic Logic and the Alethic-Deontic Octagon https://www.filosofiskanotiser.com/Ronnedal15_3_2.pdf
+2. Logics for Epistemic Actions: Completeness, Decidability, Expressivity https://www.mdpi.com/2813-0405/1/2/6
+3. A Modal Logic of Epistemic Games https://www.mdpi.com/2073-4336/1/4/478
+Can you help me write the initial section of the Agda, Isabelle/HOL and Lean4 formalizations of my ideas? Please don't waste much space for the existing theorems, but please examine these theorems to tell me how each system applies to multi-agent game theory and single-agent game theory, and find the equivalent of the Harsanyi claim that uncertainty about the structure of the game can be reduced to uncertainty about payoffs, in the other papers, and also formulate and prove analogous claims in Standard Deontic Logic and other logics in https://www.ontology.co/essays/deontic-logic.pdf by constructing a model of alethic logic from a model of deontic logic.
