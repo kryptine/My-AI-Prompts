@@ -1,0 +1,121 @@
+2025-08-19 16:48:42: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-19 17:05:18: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-19 19:06:05: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-20 09:57:10: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-20 10:19:33: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-21 05:42:12: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-21 09:49:01: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-21 09:55:34: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-21 13:14:25: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-21 17:00:19: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-22 09:56:43: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-22 15:47:13: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-22 15:51:49: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-23 09:58:46: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-23 09:58:46: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-23 09:58:46: [error] Server error: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at GetAddrInfoReqWrap.callback (node:net:2206:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-08-23 09:58:46: [error] Could not start server: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at GetAddrInfoReqWrap.callback (node:net:2206:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-08-23 17:32:36: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-24 18:52:22: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-31 18:14:31: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-08-31 18:14:31: Sending message: {"action":"onSecondInstance","data":{"senderPort":2659,"profilePath":"C:/Users/Admin/.config/joplin-desktop","argv":["C:\\Program Files\\Joplin\\Joplin.exe"]},"secretKey":"MjJ3vlTubom3Bf7Gnv8qKmBavhahoUUZMr3702lco2FkSdwPF2TUiB45HWnCjfPO"}
+2025-08-31 18:14:31: Got message: {"action":"onSecondInstance","data":{"senderPort":2659,"profilePath":"C:/Users/Admin/.config/joplin-desktop","argv":["C:\\Program Files\\Joplin\\Joplin.exe"]},"secretKey":"MjJ3vlTubom3Bf7Gnv8qKmBavhahoUUZMr3702lco2FkSdwPF2TUiB45HWnCjfPO","sourcePort":2659}
+2025-09-02 19:20:05: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-02 22:26:00: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-08 07:13:59: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-08 11:59:21: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-08 11:59:21: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-08 11:59:21: [error] Server error: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-09-08 11:59:21: [error] Could not start server: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-09-08 19:05:20: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-09 16:23:23: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-09 23:03:32: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-10 20:53:07: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-11 09:12:55: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-11 09:44:02: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-11 19:52:30: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-12 07:53:25: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-12 07:53:25: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-12 07:53:25: [error] Server error: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-09-12 07:53:25: [error] Could not start server: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-09-12 12:16:54: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-12 12:16:54: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-12 12:16:54: [error] Server error: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-09-12 12:16:54: [error] Could not start server: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-09-15 08:20:13: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-15 10:39:23: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-15 19:20:10: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-30 09:52:37: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-30 09:52:37: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-09-30 09:52:38: [error] Server error: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-09-30 09:52:38: [error] Could not start server: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-11-10 08:08:05: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-11-10 08:08:05: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
+2025-11-10 08:08:13: [error] Server error: Error: listen EADDRINUSE: address already in use ::1:2658
+Code: EADDRINUSE
+Error: listen EADDRINUSE: address already in use ::1:2658
+    at Server.setupListenHandle [as _listen2] (node:net:1939:16)
+    at listenInCluster (node:net:1996:12)
+    at GetAddrInfoReqWrap.callback (node:net:2205:7)
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:134:8)
+2025-11-10 08:12:22: Starting server using secret key: C:/Users/Admin/.config/joplin-desktop/ipc_secret_key.txt
