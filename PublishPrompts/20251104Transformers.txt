@@ -1,0 +1,9 @@
+1. Transformers are Inherently Succinct https://arxiv.org/html/2510.19315v2
+2. A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers https://arxiv.org/html/2503.03961v2
+3. The Expressive Power of Transformers with Chain of Thought https://arxiv.org/html/2310.07923v4
+4. Exact Expressive Power of Transformers with Padding https://arxiv.org/html/2505.18948v1
+5. Constant Bit-size Transformers Are Turing Complete https://arxiv.org/html/2506.12027v2
+6. Characterizing the Expressivity of Transformer Language Models https://arxiv.org/abs/2505.23623
+Requests:
+1. Please list all the results about the exact expressivity of Transformers, and show me the exact parameters used in each theorem (bit-precision, context window, etc.) 
+2. Can you help me write the the SMT-LIB 2, Agda, Coq and Lean4 formalizations of the main definitions, theorems, and proofs, that is, the repeated concepts should be done once, with the theorems formalized, at least with placeholders like `admit` and `sorry` if the thing is too big, but if it's incomplete, also provide a copiable infobox that summarizes the content and the APIs so that it can be used to formalize further parts by copying into other chats, from now until completion, although you do not need a complete roadmap now. I want the content to be as formal as possible by using formal syntax instead of identifiers, and avoid defining new types and other primitives, choosing to use generic ones like vectors, lists, matrices, etc. instead. Please explain the content in natural language and formal mathematical exposition in SMT-LIB 2, Agda, Coq and Lean4 alternately.

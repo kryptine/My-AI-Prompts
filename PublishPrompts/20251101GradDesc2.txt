@@ -1,0 +1,1064 @@
+1. Prompt: \section{Problem statement}
+
+Let $f:\mathbb{R}^n\rightarrow\mathbb{R}$ be a differentiable convex function with at least one minimizer. Consider the Nesterov ODE
+\[
+\ddot{X}(t)+\frac{3}{t}\dot{X}(t)+\nabla f\big(X(t)\big)=0,\qquad \text{for }t>0
+\]
+with initial conditions $X(0)=X_0$ and $\dot{X}(0)=0$.
+Show that
+\[
+X(t)\rightarrow X_\infty\in \argmin f.
+\]
+
+\paragraph{Comments}
+\begin{itemize}
+\item It is known that
+\[
+f\big(X(t)\big)-\min f\le \frac{2\|X_0-X_\star\|^2}{t^2},
+\]
+where $X_\star$ is any minimizer of $f$ [Su,Boyd,Candes 2016].
+\item 
+Despite the function-value convergence $f\big(X(t)\big)\rightarrow \min f$, the point convergence $X(t)\rightarrow X_\infty$ has remained elusive:
+\begin{itemize}
+\item
+[C]onvergence of the trajectories is still a puzzling open question.'' [Attouch, Chbani, Peypouquet, Redont 2018]
+\item [C]onvergence of the trajectories ... remains a widely open question.''
+[Attouch, Chbani, Riahi 2019]
+\end{itemize}
+\item 
+If the minimizer of $f$ is unique, then point convergence immediately follows from function-value convergence. Thus, the problem is interesting only when $\argmin f$ contains multiple points.
+\item 
+It is known that $\{X(t)\}_{t\ge 0}$ is bounded, so the dynamics have cluster points. Any cluster point must be a minimizer due to the function-value convergence. The contention is whether $\{X(t)\}_{t\ge 0}$ has multiple limits.
+\item (Well-posedness of this singular ODE is known  [Su,Boyd,Candes 2016].)
+\end{itemize}
+
+\newpage
+
+\section{Convergence proof}
+\noindent Let $f_\star:=\min f$, i.e., $f(z)=f_\star$ for any $z\in\argmin f$.  For $z\in\argmin f$, consider the following energy function:
+    \[
+    \mathcal{E}_z(t) = t^2(f(X)-f_\star)+\frac{1}{2}\big\| t\dot{X}+2(X-z)\big\|^2.
+    \]
+
+\begin{lemma}\label{lem:1}
+The energy function $\mathcal{E}_z(t)$ converges to a finite limit and $X(t)$ is bounded for all $t$.
+\end{lemma}
+\begin{proof}
+First, we show that $\mathcal{E}_z'(t)\le0$:
+\[
+\begin{aligned}
+\frac{d}{dt}\Big[t^2\big(f(X)-f_\star\big)\Big]
+&=2t\big(f(X)-f_\star\big) + t^2\langle \nabla f(X), \dot X\rangle,\\[2mm]
+\frac{d}{dt}\,\frac12\big\|t\dot X+2(X-z)\big\|^2
+&=\big\langle t\dot X+2(X-z),\,\dot X+t\ddot X+2\dot X\big\rangle\\
+&=\big\langle t\dot X+2(X-z),\,t\ddot X+3\dot X\big\rangle.
+\end{aligned}
+\]
+Using the ODE, \(t\ddot X+3\dot X=-t\,\nabla f(X)\):
+\[
+\begin{aligned}
+\mathcal E_z'(t)
+&=2t\big(f(X)-f_\star\big)+t^2\langle \nabla f(X),\dot X\rangle
+   +\big\langle t\dot X+2(X-z),\, -t\nabla f(X)\big\rangle\\
+&=2t\big(f(X)-f_\star\big)+t^2\langle \nabla f(X),\dot X\rangle
+   -t\langle t\dot X,\nabla f(X)\rangle
+   -2t\langle X-z,\nabla f(X)\rangle\\
+&=2t\!\left(f(X)-f_\star-\langle \nabla f(X),\,X-z\rangle\right).
+\end{aligned}
+\]
+By convexity,
+\[
+f_\star\ge f(X)+\langle \nabla f(X),z-X\rangle
+\Longleftrightarrow
+f(X)-f_\star-\langle \nabla f(X),X-z\rangle\le 0.
+\]
+Therefore, $\mathcal E_z'(t)\le0$ and $\mathcal E_z(t)$ is nonincreasing and bounded below by zero. So, it converges to a finite limit.
+For the boundness of $X$, let $W(t):=t^2(X(t)-z)$. Then, 
+\[
+\dot{W}=t^2\dot{X}+2t(X-z)
+\]
+and thus
+\[
+\mathcal{E}_z(t)=t^2(f(X)-f_\star)+\frac{1}{2}\Big\|\frac{1}{t}\dot{W}\Big\|^2 \le \mathcal{E}_z(0).
+\]
+So, $\frac{1}{t}\dot{W}=t\dot{X}+2(X-z)$ is bounded, say $\|\frac{1}{t}\dot{W}\|\le M$. Then we have 
+\[
+\|X-z\|=\frac{1}{t^2}\|W\|\le \frac{1}{t^2}\int_{0}^{t}\|\dot{W}\| ds \le \frac{1}{t^2}\int_{0}^{t}sM ds  = \frac{M}{2}.
+\]
+\end{proof}
+
+\newpage 
+
+\begin{theorem}
+    The solution $X(t)$ of the Nesterov ODE converges to a minimizer. That is,
+    \[
+    X(t)\rightarrow X_\infty\in \argmin f.
+    \]
+\end{theorem}
+\begin{proof}
+Since $\{X(t)\}_{t\ge 0}\subset\mathbb{R}^n$ is bounded, the dynamics have at least one cluster point. Since $f(X(t))\rightarrow f_\star$ and $f$ is continuous, all cluster points attain the function value $f_\star$ and therefore are minimizers.
+If there is only one cluster point, $X(t)$ converges to a limit, and we are done.
+
+Therefore, assume $z_1$ and $z_2$ are cluster points of $X(t)$, so $z_1,z_2\in \argmin f$.
+We will now show $z_1=z_2$. Let
+\[
+h_i(t) := \|X(t)- z_i\|^2, 
+\qquad 
+H(t) := \mathcal{E}_{z_1}(t) - \mathcal{E}_{z_2}(t).
+\]
+Expanding the square in $\mathcal{E}_z$ gives
+\[
+\mathcal{E}_z(t)
+= t^2\big(f(X) - f_\star\big)
+  + \tfrac{1}{2}t^2\|\dot{X}\|^2
+  + 2h_z(t)
+  + t\,h_z'(t).
+\]
+The subtraction $\mathcal{E}_{z_1}- \mathcal{E}_{z_2}$ cancels
+the $t^2(f(X)-f_\star)$ and $\tfrac{1}{2}t^2\|\dot{X}\|^2$ terms
+and yields the linear ODE:
+\begin{equation}\label{eq:linear}
+    t\,(h_1 - h_2)' + 2(h_1 - h_2) = H(t).
+\end{equation}
+Since both $\mathcal{E}_{z_1}(t)$ and $\mathcal{E}_{z_2}(t)$ converge to finite limits,
+\[
+H(t) \to H(\infty)<\infty.
+\]
+Multiply \eqref{eq:linear} by the integrating factor $t$ to obtain
+\[
+\frac{d}{dt}
+(t^2(h_1(t) - h_2(t))) = t\,H(t).
+\]
+Then
+\[
+(t^2(h_1(t) - h_2(t)))-(t_0^2(h_1(t_0) - h_2(t_0))) = \int_{t_0}^{t}sH(s)ds,
+\]
+which implies 
+\[
+h_1(t) - h_2(t) = \frac{t_0^2}{t^2}(h_1(t_0) - h_2(t_0)) + \frac{1}{t^2}\int_{t_0}^{t}sH(s)ds.
+\]
+By taking $t\to \infty$, the first term on the right-hand side vanishes and the second terms converges to $\frac{H(\infty)}{2}$ by L'H\^opital's rule. Thus, $h_1(t)-h_2(t)$ converges. Evaluating $h_1-h_2$ along two subsequences $\{t_k\}_{k\ge 0}$ and $\{s_k\}_{k\ge 0}$ such that
+$X(t_k)\rightarrow z_1$ and $X(s_k)\rightarrow z_2$ respectively, we get 
+\[
+\lim_{k\to \infty}(h_1(t_k)-h_2(t_k)) = \|z_1-z_1\|^2-\|z_1-z_2\|^2=-\|z_1-z_2\|^2
+\]
+and 
+\[
+\lim_{k\to \infty}(h_1(s_k)-h_2(s_k)) = \|z_2-z_1\|^2-\|z_2-z_2\|^2= \|z_2-z_1\|^2
+\]
+The two values must coincide since $h_1-h_2$ has a limit, therefore $z_1=z_2$.
+\end{proof}
+
+\newpage
+\section{Generalized problem statement}
+
+Let $f:\mathbb{R}^n\rightarrow\mathbb{R}$ be a differentiable convex function with at least one minimizer. Consider the {\color{red}generalized} Nesterov ODE
+\[
+\ddot{X}(t)+\frac{{\color{red}r}}{t}\dot{X}(t)+\nabla f\big(X(t)\big)=0,\qquad \text{for }t>t_0>0
+\]
+with ${\color{red}r}>0$ and initial conditions $X(t_0)$ and $\dot{X}(t_0)$. (Time starts at $t_0>0$ to avoid the singularity.)
+
+Prior work establishes convergence for $r>3$. In the previous section, we established convergence for $r=3$.
+In the following, we establish divergence for $r\in (0,1]$, and a partial convergence result for $r\in [1,3)$.
+
+\subsection{Divergence for $r\in (0,1]$}
+\begin{theorem}
+Let $f'\colon \mathbb{R}\rightarrow\mathbb{R}$ be given by
+\[
+f(x) 
+% = \frac{1}{2} \operatorname{dist}(x, [-1,1])^2 
+= 
+\left\{
+\begin{array}{ll}
+\tfrac{1}{2}(x-1)^2 & x>1 \\
+0 & |x|\le 1 \\
+\tfrac{1}{2}(x+1)^2 & x<-1.
+\end{array}\right.
+\]
+and consider
+\[
+\ddot{X}(t)+\frac{r}{t}\dot{X}(t)+f'\big(X(t)\big)=0,\qquad \text{for }t>t_0
+\]
+with $r\in (0,1]$ and initial conditions $X(t_0)=2$ and $\dot{X}(t_0)=0$. Then, $X(t)$ hits $\pm 1$ infinitely many times and therefore diverges.
+\end{theorem}
+\begin{proof}
+%     XXX
+    
+% \url{https://chatgpt.com/share/68fa6104-c8e8-8009-9a1b-7e356bc9b8c6}
+
+% XXX
+% \noindent
+The equation is piecewise linear and can be written in three parts as follows.
+
+If $x(t)>1$, let $y(t)=x(t)-1$. Then
+\begin{equation}\label{eq:R}
+    y''+\frac{r}{t}y'+y=0. \tag{R}
+\end{equation}
+
+If $|x(t)|\le 1$, we have
+\begin{equation}\label{eq:C}
+    x''+\frac{r}{t}x'=0. \tag{C}
+\end{equation}
+
+If $x(t)<-1$, let $z(t)=x(t)+1$. Then
+\begin{equation}\label{eq:L}
+    z''+\frac{r}{t}z'+z=0, \tag{L}
+\end{equation}
+We will show that the trajectory hits $x=1$ and $x=-1$ infinitely many times, and hence cannot converge.
+
+Consider equation \eqref{eq:R} (the same argument applies to \eqref{eq:L}).
+Let $y(t)=t^{-r/2}u(t)$; a short calculation yields
+\begin{equation}\label{eq:star}
+    \ddot{u}+\Bigl(1+\frac{r(2-r)}{4t^2}\Bigr)u=0. \tag{$\star$}
+\end{equation}
+Because $r\in(0,1]$, the coefficient in \eqref{eq:star} satisfies
+\[
+1+\frac{r(2-r)}{4t^2}\ge 1 \qquad \text{for all }t>0.
+\]
+By the Sturm comparison theorem with $w=\sin t$ satisfying $\ddot{w}+w=0$, every nontrivial solution $u$
+of \eqref{eq:star} (and hence every nontrivial $y$ of \eqref{eq:R})
+has a zero in every interval of length at most~$\pi$.
+
+In particular, starting outside with $y>0$ (or equivalently $x>1$), 
+there exists a first time $\tau_1>0$ such that $y(\tau_1)=0$,
+that is, $x(\tau_1)=1$. If $y(\tau_1)=y'(\tau_1)=0$, then by the uniqueness theorem for linear ODEs, the only solution to \eqref{eq:R} with this data is $y\equiv 0$. This contradicts $y(t_0)=1$. Thus, $x'(\tau_1)\ne 0$ and the trajectory enters the region $|x|<1$
+with strictly negative velocity. Exactly the same reasoning applies to the left region \eqref{eq:L}:
+whenever the trajectory is outside on the left, 
+it re–enters $[-1,1]$ at $x=-1$ with nonzero velocity,
+and this occurs within a uniformly bounded time interval.
+
+While $|x(t)|\le 1$, the trajectory follows \eqref{eq:C}:
+\[
+x''+\frac{r}{t}x'=0.
+\]
+Integrating once gives
+\[
+\dot{x}(t)=\dot{x}(t_0)\Bigl(\frac{t_0}{t}\Bigr)^{r}.
+\]
+Take $t_0=\tau_1$, where $x(\tau_1)=1$ and $\dot{x}(\tau_1)=y'(\tau_1)<0$.
+Because the integral
+\[
+\int_{t_0}^{\infty}\Bigl(\frac{t}{t_0}\Bigr)^{-r}dt
+\]
+diverges for $r\le 1$, the trajectory traverses the entire flat region in finite time: there exists $\sigma_1>\tau_1$ such that
+\[
+x(\sigma_1)=-1.
+\]
+Moreover,
+\[
+\dot{x}(\sigma_1)
+=\dot{x}(\tau_1)\Bigl(\frac{\tau_1}{\sigma_1}\Bigr)^{r}
+\ne 0,
+\]
+and $\dot{x}(\sigma_1)$ has the same sign as $\dot{x}(\tau_1)$. Hence, the trajectory exits the flat region at the opposite endpoint with nonzero velocity. At $t=\sigma_1$, we are at $x=-1$ with $\dot{x}(\sigma_1)<0$.
+Hence immediately $x(t)<-1$ for $t>\sigma_1$,
+and the left–outside equation~\eqref{eq:L} governs the motion.
+By the same reasoning applied to find $\tau_1$, there exists a next time $\tau_2>\sigma_1$
+such that
+\[
+x(\tau_2)=-1
+\quad\text{and}\quad
+\dot{x}(\tau_2)>0,
+\]
+corresponding to re–entry into the flat region $|x|\le1$. Applying the same reason for $\sigma_2$ again, there exists a time $\sigma_2>\tau_2$
+such that
+\[
+x(\sigma_2)=1.
+\]
+Repeating this reasoning inductively, we obtain an increasing sequence
+\[
+0<\tau_1<\sigma_1<\tau_2<\sigma_2<\cdots
+\]
+with
+\[
+x(\tau_{2k-1})=1,
+\qquad
+x(\tau_{2k})=-1,
+\qquad
+k=1,2,\dots
+\]
+and $\dot{x}(\tau_i)\ne0$ for all~$i$. While $|x|\le 1$, we have
+\[
+-2 = x(\sigma_k) - x(\tau_k)
+    = |\dot{x}(\tau_i)|\,\tau_k^{\,r} \int_{\tau_k}^{\sigma_k} s^{-r}\,ds.
+\]
+Since $s^{-r} \le \tau_k^{-r}$ for all $s \ge \tau_k$, it follows that
+\[
+2 \le |\dot{x}(\tau_i)|\,\tau_k^{\,r} \int_{\tau_k}^{\sigma_k} \tau_k^{-r}\,ds
+   = |\dot{x}(\tau_i)|\,(\sigma_k - \tau_k),
+\]
+and therefore
+\[
+\sigma_k - \tau_k \;\ge\; \frac{2}{|\dot{x}(\tau_i)|}.
+\]
+Now, bound the entry speeds uniformly.
+Define the oscillator energy
+\[
+E(t) := \tfrac{1}{2}y'(t)^2 + \tfrac{1}{2}y(t)^2
+\]
+which satisfies
+\[
+E'(t) = y'(t)\bigl(y''(t)+y(t)\bigr)
+       = -\frac{r}{t}\,y'(t)^2 \le 0,
+\]
+so $E$ is nonincreasing in time.
+At entry, $y(\tau_k) = 0$, hence
+\[
+|\dot{x}(\tau_k)| = |\dot{y}(\tau_k)| \le \sqrt{2E(\tau_k)}
+       \le \sqrt{2E(0)} =: V_{\max}.
+\]
+Consequently, for all $k$,
+\[
+\sigma_k - \tau_k \;\ge\; \frac{2}{V_{\max}} \;=:\; \delta > 0.
+\]
+and hence 
+\[
+0<\tau_1<\sigma_1<\tau_2<\sigma_2<\cdots\to \infty.
+\]
+Therefore, the trajectory alternates indefinitely between
+the endpoints $x=\pm1$,
+and thus $x(t)$ does not converge as $t\to\infty$:
+along the subsequences $\{\tau_{2k-1}\}$ and $\{\tau_{2k}\}$
+it takes the values $1$ and $-1$, respectively. This completes the construction of a counterexample for every $r\in(0,1]$
+\end{proof}
+
+\subsection{Energy function and \underline{un}boundedness for $r\in (1,3)$}
+
+For $z\in\argmin f$, consider the following energy functions:
+\begin{align*}    
+\mathcal{E}_z(t) &= t^{r-3}\Big(t^2(f(X)-f_\star)+\frac{1}{2}\big\| t\dot{X}+(r-1)(X-z)\big\|^2\Big)\\
+\mathcal{F}_z(t) &= t^{\tfrac{2r}{3}} \bigl(f(X) - f_\star\bigr)
++ \frac{r(3 - r)}{9} t^{\tfrac{2r}{3} - 2} \|X - z\|^2
++ \frac{1}{2} t^{\tfrac{2r}{3} - 2}
+\Big\| t\dot{X} + \frac{2r}{3}(X - z) \Big\|^2.
+\end{align*}
+    
+
+\begin{lemma}
+Let $r\in (1,3)$.
+The energy functions $\mathcal{E}_z(t)$ and $\mathcal{F}_z(t)$ are non-increasing, hence converging to a finite limit.
+Also, $f(X)\rightarrow f_\star$, specifically with the rate
+\[
+f(X) - f_\star\le \frac{\mathcal{F}_z(t_0)}{t^{\tfrac{2r}{3}}}.
+\]
+Further, 
+\begin{itemize}
+\item If $\argmin f$ is bounded, then $\{X(t)\}_{t\ge t_0}$ is bounded.
+\item If $\argmin f$ is unbounded, then 
+\[
+\|X(t)-z\|\le
+\min\Big\{\frac{3}{\sqrt{r(3-r)}}\sqrt{\mathcal{F}_z(t_0)}t^{\frac{3-r}{3}},
+\frac{2\sqrt{2}}{r+1}
+\sqrt{\mathcal{E}_z(t_0)} t^{\frac{3-r}{2}}+O\Big(\frac{1}{t^{r-1}}\Big)
+\Big\}.
+\]
+\end{itemize}
+\end{lemma}
+
+\noindent 
+\emph{Remark.} Unlike in the $r=3$ case, we do not have boundedness  $\{X(t)\}_{t\ge t_0}$ in general. We leave this as an open problem for now.
+
+\begin{proof}
+% \url{https://chatgpt.com/share/68fa6750-4264-8009-804e-9655ce07860a}
+First, we show that $\mathcal{E}_z'(t)\le0$.
+For notational simplicity, let $Y:=t\dot{X}+(r-1)(X-z)$.
+\[
+\begin{aligned}
+\frac{d}{dt}\Big[t^{r-1}\big(f(X)-f_\star\big)\Big]
+&=(r-1)t^{r-2}\big(f(X)-f_\star\big) + t^{r-1}\langle \nabla f(X), \dot X\rangle,\\[2mm]
+\frac{d}{dt}\,\frac{t^{r-3}}{2}\big\|Y\big\|^2
+&=t^{r-3}\langle Y,\,\dot{Y}\rangle+\frac{r-3}{2}t^{r-4}\|Y\|^2.
+\end{aligned}
+\]
+Compute $\dot{Y}$:
+\[
+\dot{Y}=(r-1)\dot{X}+\dot{X}+t\ddot{X}=r\dot{X}+t\ddot{X}
+\]
+Using the ODE, \(t\ddot X+r\dot X=-t\,\nabla f(X)\):
+\[
+\langle Y, \dot{Y}\rangle =\langle t\dot{X}+(r-1)(X-z),  -t\nabla f(X)\rangle=-t^2\langle \dot{X} , \nabla f(X)\rangle -t(r-1)\langle X-z,\nabla f(X)\rangle.
+\]
+Putting all together,
+\[
+\begin{aligned}
+\mathcal{E}_z'(t)&=(r-1)t^{r-2}\big(f(X)-f_\star\big) + t^{r-1}\langle \nabla f(X), \dot X\rangle -t^{r-1}\langle \dot{X} , \nabla f(X)\rangle \\
+& \quad - t^{r-2}(r-1)\langle X-z,\nabla f(X)\rangle+\frac{r-3}{2}t^{r-4}\|Y\|^2\\
+&=(r-1)t^{r-2}\!\underbrace{\big(f(X)-f_\star-\langle \nabla   f(X),\,X-z\rangle\big)}_{\le 0, \textup{ by convexity }}+\underbrace{\bigg(\frac{r-3}{2}\bigg)t^{r-4}\|Y\|^2}_{\le 0}
+\end{aligned}
+\]
+Therefore, $\mathcal E_z'(t)\le0$ and $\mathcal E_z(t)$ is nonincreasing and bounded below by zero. So, it converges to a finite limit. For $\mathcal{F}_z(t)$, let $V:=t\dot{X}+\frac{2r}{3}(X-z)$.
+\begin{align*}
+   \mathcal{F}_z'(t)&=\frac{2r}{3}t^{\frac{2r-3}{3}}\big(f(X)-f_\star\big)+t^{\frac{2r}{3}}\langle \nabla f(X), \dot{X}\rangle \\
+   &\quad + \frac{r(3-r)}{9}\bigg(\big(\frac{2r}{3}-2\big)t^{\frac{2r}{3}-3} \|X-z\|^2 + 2t^{\frac{2r}{3}-2}\langle X-z, \dot{X}\rangle\bigg)\\
+   &\quad +\frac{1}{2}\big(\frac{2r}{3}-2\big)t^{\frac{2r}{3}-3}\|V\|^2+t^{\frac{2r}{3}-2}\langle V, \dot{V}\rangle.
+\end{align*}
+Expand $\langle V , \dot{V}\rangle$ and use the ODE to get:
+\begin{align*}
+    \langle V , \dot{V}\rangle&= \big\langle V,\dot{X}+t\ddot{X}+\frac{2r}{3}\dot{X}\big\rangle\\
+    &=\big\langle V,\big(1-\frac{r}{3}\big)\dot{X}-\nabla f(X)\rangle\
+\end{align*}
+Multiplying both sides of the expression for $\mathcal{F}_z'(t)$ by
+$t^{\,3-\frac{2r}{3}}>0$ (which does not affect the sign),
+and using the identities
+\[
+t\langle V,\dot{X}\rangle
+ = \|V\|^2-\frac{2r}{3}\langle V,X-z\rangle,
+\qquad
+t\langle X-z,\dot{X}\rangle
+ = \langle X-z,V\rangle-\frac{2r}{3}\|X-z\|^2,
+\]
+as well as
+\[
+t^3\langle \nabla f(X),\dot{X}\rangle
+ = t^2\langle \nabla f(X),V\rangle-\frac{2r}{3}t^2\langle \nabla f(X),X-z\rangle,
+\]
+we obtain
+\begin{align*}
+t^{\,3-\frac{2r}{3}}\mathcal{F}_z'(t)
+&= \frac{2r}{3}t^2\bigl(f(X)-f_\star\bigr)
+  + t^2\langle \nabla f(X),V\rangle
+  - \frac{2r}{3}t^2\langle \nabla f(X),X-z\rangle \\
+&\quad + \frac{r(3-r)}{9}\!\left[\Big(\frac{2r}{3}-2\Big)\|X-z\|^2
+       + 2\bigl(\langle X-z,V\rangle-\tfrac{2r}{3}\|X-z\|^2\bigr)\right] \\
+&\quad + \frac{1}{2}\Big(\frac{2r}{3}-2\Big)\|V\|^2
+     + \Big(1-\frac{r}{3}\Big)\!\left(\|V\|^2-\tfrac{2r}{3}\langle V,X-z\rangle\right)
+     - t\langle V,\nabla f(X)\rangle,
+\end{align*}
+By convexity,
+\[
+\frac{2r}{3}t^2\bigl(f(X)-f_\star\bigr)
+ -\frac{2r}{3}t^2\langle\nabla f,X-z\rangle \le 0.
+\]
+So,
+\begin{align*}
+t^{\,3-\frac{2r}{3}}\mathcal{F}_z'(t)
+&\le  \frac{r(3-r)}{9}\!\left[\Big(\frac{2r}{3}-2\Big)\|X-z\|^2
+       + 2\bigl(\langle X-z,V\rangle-\tfrac{2r}{3}\|X-z\|^2\bigr)\right] \\
+&\quad + \frac{1}{2}\Big(\frac{2r}{3}-2\Big)\|V\|^2
+     + \Big(1-\frac{r}{3}\Big)\!\left(\|V\|^2-\tfrac{2r}{3}\langle V,X-z\rangle\right)
+     - t\langle V,\nabla f(X)\rangle,
+\end{align*}
+We next collect coefficients of
+$\|V\|^2$, $\langle V,X-z\rangle$, and $\|X-z\|^2$.
+
+\smallskip
+\noindent
+$\bullet$ Coefficient of $\|V\|^2$:
+\[
+\frac{1}{2}\Big(\frac{2r}{3}-2\Big)
+   +\Big(1-\frac{r}{3}\Big)=0.
+\]
+
+\noindent
+$\bullet$ Coefficient of $\langle V,X-z\rangle$:
+\[
+\frac{2r(3-r)}{9}-\frac{2r}{3}\Big(1-\frac{r}{3}\Big)
+=\frac{2r(3-r)}{9}-\frac{2r}{3}\cdot\frac{3-r}{3}=0.
+\]
+
+\noindent
+$\bullet$ Coefficient of $\|X-z\|^2$:
+\begin{align*}
+\frac{r(3-r)}{9}\Big(\frac{2r}{3}-2\Big)-\frac{4r^2(3-r)}{27}
+= &-\,\frac{2r(3-r)}{9}\Big(1+\frac{r}{3}\Big)\\
+&= -\,\frac{2r(3-r)(3+r)}{27}\\
+&\le 0.
+\end{align*}
+Combining these observations, every term in $t^{\,3-\frac{2r}{3}}\mathcal{F}_z'(t)$ is nonpositive,
+and hence $\mathcal{F}_z(t)$ is nonincreasing. Therfore, we get 
+\[
+ t^{\tfrac{2r}{3}} \bigl(f(X) - f_\star\bigr) \le \mathcal{F}_z(t)\le \mathcal{F}_z(t_0)
+\]
+and hence the $O(t^{-\frac{2r}{3}})$ convergence rate. If $\argmin f$ is bounded, then there exists $\varepsilon_0>0$ such that the sublevel set
+$E:=\{ x \,|\, f(x) \le f_\star + \varepsilon_0\}$ is bounded. Since $f(X(t))$ converges to $f_\star$, $\{X(t)\}_{t\ge t_0}$ must enter $E$ for $t\ge T$. Hence $\{X(t)\}_{t\ge t_0}$ is bounded. If $\argmin f$ is unbounded, let $W(t):=t^{r-1}(X(t)-z)$. Then, 
+\[
+\dot{W}=t^{r-1}\dot{X}+(r-1)t^{r-2}(X-z)
+\]
+and thus
+\[
+\mathcal{E}_z(t)=t^{r-3}\bigg(t^2(f(X)-f_\star)+\frac{1}{2}\Big\|\frac{1}{t^{r-2}}\dot{W}\Big\|^2 \bigg)\le \mathcal{E}_z(t_0).
+\]
+So,  $\|\frac{1}{t^{r-2}}\dot{W}\|\le 2\sqrt{\mathcal{E}_z(t_0)}t^{\frac{r-1}{2}}$. Then we have 
+\begin{align*}
+    \|X(t)-z\|
+    &= \frac{1}{t^{r-1}}\|W(t)\| \\
+    &\le \frac{1}{t^{r-1}}\Big(\|W(t_0)\| + \int_{t_0}^{t} \|\dot{W}(s)\|\,ds\Big) \\
+    &\le \frac{t_0^{\,r-1}\|X(t_0)-z\|}{t^{r-1}}
+    + \frac{\sqrt{2\mathcal{E}_z(t_0)}}{t^{r-1}}\int_{t_0}^{t}s^{\frac{r-1}{2}}\,ds \\
+    &= \frac{t_0^{\,r-1}\|X(t_0)-z\|}{t^{r-1}}
+    + \frac{2\sqrt{2\mathcal{E}_z(t_0)}}{r+1}\,t^{\frac{3-r}{2}}
+    + O\!\Big(\tfrac{1}{t^{r-1}}\Big) \\
+    &= \frac{2\sqrt{2}}{r+1}\sqrt{\mathcal{E}_z(t_0)}\,t^{\frac{3-r}{2}}
+    + O\!\Big(\tfrac{1}{t^{r-1}}\Big).
+\end{align*}
+Meanwhile, we also have
+\[
+\frac{r(3 - r)}{9} t^{\tfrac{2r}{3} - 2} \|X - z\|^2\le \mathcal{F}_z(t)\le \mathcal{F}_z(t_0).
+\]
+Thus, 
+\[
+\|X(t)-z\|\le \frac{3}{\sqrt{r(3-r)}}\sqrt{\mathcal{F}_z(t_0)}t^{\frac{3-r}{3}}.
+\]
+Putting altogether, 
+\[
+\|X(t)-z\|\le
+\min\Big\{\frac{3}{\sqrt{r(3-r)}}\sqrt{\mathcal{F}_z(t_0)}t^{\frac{3-r}{3}},
+\frac{2\sqrt{2}}{r+1}
+\sqrt{\mathcal{E}_z(t_0)} t^{\frac{3-r}{2}}+O\Big(\frac{1}{t^{r-1}}\Big)
+\Big\}.
+\]
+\end{proof}
+
+\noindent \emph{Remark.}
+We prompted ChatGPT to prove the boundedness of $\{X(t)\}_{t\ge 0}$, suggesting several leads that we believe to be promising. However, ChatGPT was unable to produce a proof. We then carefully examined the problem ourselves to ensure that no simple argument was being overlooked. After a reasonable amount of effort, we (the humans) too were unable to resolve it. We therefore leave the question of boundedness open for now.
+
+% We therefore conclude that our current proof techniques are insufficient to establish the boundedness of $\{X(t)\}_{t\ge 0}$, and we leave this as an open problem.
+
+\subsection{Uniqueness of the limit for $r\in (1,3)$}
+
+\begin{theorem}
+Let $r\in (1,3)$.
+Assume $\argmin f$ is bounded. Then, the solution $X(t)$ of the generalized Nesterov ODE converges to a minimizer. That is,
+    \[
+    X(t)\rightarrow X_\infty\in \argmin f.
+    \]
+\end{theorem}
+
+\noindent \emph{Remark.} We again do not know whether the assumption that $\argmin f$ is bounded is actually necessary. (It was not required in the case $r=3$.) We leave this as an open problem.
+
+% XXX
+
+% \url{https://chatgpt.com/share/68fa8680-b45c-8009-8ff3-71ac3dc29a80}
+
+% XXX
+
+\begin{proof}
+Since $\{X(t)\}_{t\ge t_0}\subset\mathbb{R}^n$ is bounded, the dynamics have at least one cluster point. Since $f(X(t))\rightarrow f_\star$ and $f$ is continuous, all cluster points attain the function value $f_\star$ and therefore are minimizers.
+If there is only one cluster point, $X(t)$ converges to a limit, and we are done.
+
+Therefore, assume $z_1$ and $z_2$ are cluster points of $X(t)$, so $z_1,z_2\in \argmin f$.
+We will now show $z_1=z_2$. Let
+\[
+h_i(t) := \|X(t)- z_i\|^2, 
+\qquad 
+H(t) := \mathcal{E}_{z_1}(t) - \mathcal{E}_{z_2}(t).
+\]
+Expanding the square in $\mathcal{E}_z$ gives
+\[
+\mathcal{E}_z(t)= t^{r-3}\!\left[
+t^2\big(f(X)-f_\star\big)
++ \tfrac{1}{2}t^2\|\dot{X}\|^2
++ \tfrac{(r-1)^2}{2}h_z(t)
++ \tfrac{(r-1)}{2}t\,h_z'(t)
+\right].
+\]
+The subtraction $\mathcal{E}_{z_1}- \mathcal{E}_{z_2}$ cancels
+the $t^{r-1}(f(X)-f_\star)$ and $\tfrac{1}{2}t^{r-1}\|\dot{X}\|^2$ terms
+and yields the linear ODE:
+\begin{equation}\label{eq:linear2}
+    t\,(h_1 - h_2)' + (r-1)(h_1 - h_2) = \frac{2}{(r-1)t^{r-3}}H(t).
+\end{equation}
+Multiply \eqref{eq:linear2} by the integrating factor $t^{r-2}$ to obtain
+\[
+\frac{d}{dt}
+(t^{r-1}(h_1(t) - h_2(t))) = \frac{2}{r-1}tH(t).
+\]
+Since both $\mathcal{E}_{z_1}(t)$ and $\mathcal{E}_{z_2}(t)$ converge to finite limits,
+\[
+H(t) \to H(\infty)<\infty.
+\]
+Then
+\[
+(t^{r-1}(h_1(t) - h_2(t)))-(t_0^{r-1}(h_1(t_0) - h_2(t_0))) = \frac{2}{r-1}\int_{t_0}^{t}sH(s)ds,
+\]
+which implies 
+\[
+h_1(t) - h_2(t) = \frac{t_0^{r-1}}{t^{r-1}}(h_1(t_0) - h_2(t_0)) + \frac{2}{(r-1)t^{r-1}}\int_{t_0}^{t}sH(s)ds.
+\]
+By taking $t\to \infty$, the first term on the right-hand side vanishes. For the second term,
+\begin{align*}
+\frac{2}{(r-1)t^{r-1}}\int_{t_0}^{t}sH(s)ds&=\frac{2}{(r-1)t^{r-1}}\int_{t_0}^{t}s(H(\infty)+H(s)-H(\infty))ds\\
+&=\frac{2}{(r-1)t^{r-1}}\int_{t_0}^{t}sH(\infty)ds+\frac{2}{(r-1)t^{r-1}}\int_{t_0}^{t}s(H(s)-H(\infty))ds\\
+&=\frac{2H(\infty)}{(r-1)t^{r-1}}\cdot\frac{t^2-t_0^2}{2}+\frac{2}{(r-1)t^{r-1}}o(t^2)\\
+&=\frac{H(\infty)}{(r-1)}t^{3-r}+o(t^{3-r})
+\end{align*}
+If $H(\infty)\ne0$, then it blows up when $t\to \infty$, which contradicts the boundness of $h_1-h_2$.
+Thus, $H(\infty)=0$ and $h_1(t)-h_2(t)\to 0$. Evaluating $h_1-h_2$ along two subsequences $\{t_k\}_{k\ge 0}$ and $\{s_k\}_{k\ge 0}$ such that
+$X(t_k)\rightarrow z_1$ and $X(s_k)\rightarrow z_2$ respectively, we get 
+\[
+\lim_{k\to \infty}(h_1(t_k)-h_2(t_k)) = \|z_1-z_1\|^2-\|z_1-z_2\|^2=-\|z_1-z_2\|^2
+\]
+and 
+\[
+\lim_{k\to \infty}(h_1(s_k)-h_2(s_k)) = \|z_2-z_1\|^2-\|z_2-z_2\|^2= \|z_2-z_1\|^2
+\]
+The two values must coincide since $h_1-h_2$ has a limit, therefore $z_1=z_2$.
+\end{proof}
+
+\newpage
+\section{NAG}
+Let $f:\mathbb{R}^n\rightarrow\mathbb{R}$ be an $L$-smooth convex function with at least one minimizer.
+Consider the Nesterov accelerated gradient algorithm
+\begin{align*}
+x_{k+1} &= y_k - \frac{1}{L} \nabla f(y_k), \\
+y_{k+1} &= x_{k+1} + \frac{t_k-1}{t_{k+1}} (x_{k+1} - x_k)
+\end{align*}
+for $k=0,1,\dots$ with $t_0=1$, $x_0=y_0\in \mathbb{R}^n$, and $t_{k+1}^2-t_{k+1}\le t_k^2$.
+Show that
+\[
+x_k\rightarrow x_\infty,\qquad
+y_k\rightarrow x_\infty,\qquad
+x_\infty\in \argmin f.
+\]
+
+\begin{lemma}\label{lem:equiv}
+Equivalent form of AGM:
+\begin{align*}
+x_{k+1}&=y_k-\frac{1}{L} \nabla f(y_k)\\
+z_{k+1}&=z_k-\frac{t_k}{L}\nabla f(y_k)\\
+y_{k+1}&=\left(1-\frac{1}{t_{k+1}}\right)x_{k+1}+\frac{1}{t_{k+1}}z_{k+1}
+\end{align*}
+for $k=0,1,\dots$, where $x^0=y^0=z^0\in \mathbb{R}^d$.    
+\end{lemma}
+\begin{proof}
+    \text{[Park, Park, Ryu 2023]}
+\end{proof}
+\begin{lemma}\label{lem:lyapunov}
+For $x_\star\in\argmin f$, consider the following energy function for $k\ge 0$:
+    \[
+    \mathcal{E}_k(x_\star) =t_{k-1}^2
+\left(f(x_k)-f_\star)\right)+\frac{L}{2}\|z_k-x_\star\|^2
+    \]
+where $t_{-1}=0$. Assume $t_{k+1}^2-t_{k+1}\le t_k^2$, then $\mathcal{E}_{k+1}(x_\star)\le \mathcal{E}_k(x_\star)$ for all $k\ge 0$, hence $\{\mathcal{E}_k(x_\star)\}_{k \ge 0 }$ converges to a finite limit. 
+\end{lemma}
+\begin{proof}
+    \text{[Park, Park, Ryu 2023]}
+\end{proof}
+\begin{lemma}
+    The sequence $\{x_k\}_{k\ge 0 }$ produced by NAG is bounded.
+\end{lemma}
+
+XXX ChatGPT Proof
+
+\url{https://chatgpt.com/share/68fa8b8f-19d8-8009-8480-1e48f1acd914}
+
+\begin{proof}
+From Lemma~\ref{lem:lyapunov}, $\{z_k\}_{k\ge 0}$ is bounded. From the equivalent form of NAG, we have 
+\begin{align}
+x_{k+1} &= y_k -\frac{1}{L}\nabla f(y_k) \nonumber\\
+&=y_k+\frac{1}{t_k}(z_{k+1}-z_k)\nonumber\\
+&=\left(1-\frac{1}{t_k}\right)x_k+\frac{1}{t_k}z_k+\frac{1}{t_k}(z_{k+1}-z_k)\nonumber\\
+&=\left(1-\frac{1}{t_k}\right)x_k+\frac{1}{t_k}z_{k+1} \label{eq:2}
+\end{align}
+for any $x_\star\in \argmin f$. We have $\|z_k\|$ bounded, say $\sup_k\|z_k\|\le M$. This gives the bound 
+\[
+\|x_{k+1}\| \le \left(1-\frac{1}{t_k}\right)\|x_k\| + \frac{1}{t_k}\|z_{k+1}\| \le \max( \|x_k\|, M). 
+\]
+for all $k$. So, we get 
+\[
+\|x_{k}\| \le \max( \|x_0\|, M) <\infty.
+\]
+\end{proof}
+
+
+\begin{theorem}\label{thm:nag}
+    The sequences $\{x_k\}_{k\ge 0}$ and $\{y_k\}_{k\ge 0}$ of NAG converge to the same minimizer. That is,
+    \[
+x_k\rightarrow x_\infty,\qquad
+y_k\rightarrow x_\infty,\qquad
+x_\infty\in \argmin f.
+    \]
+\end{theorem}
+
+Prove this theorem.
+
+Answer: Below I prove Theorem \ref{thm:nag} using only the ingredients you already stated (the equivalent three‑sequence form and the Lyapunov function).  The key steps are:
+
+* a “strict” energy drop that forces the gradient residual to vanish and keeps the auxiliary sequence ({z_k}) almost stationary,
+* a short linear recursion showing that the **difference of squared distances of (x_k) to any two minimizers** has a limit, and
+* an Opial-type contradiction argument (as in your ODE proof) to rule out more than one cluster point.
+
+Throughout let (S:=\arg\min f\neq\emptyset), fix any (x_\star\in S), and write (f_\star=f(x_\star)).
+
+---
+
+## 1) A strict energy drop and two consequences
+
+Recall the Lyapunov energy (Lemma \ref{lem:lyapunov})
+[
+\mathcal E_k(x_\star);=;t_{k-1}^2\bigl(f(x_k)-f_\star\bigr);+;\frac{L}{2},|z_k-x_\star|^2
+\qquad(k\ge0),
+]
+which is nonincreasing provided (t_{k+1}^2-t_{k+1}\le t_k^2).
+
+In fact, the standard proof of Lemma \ref{lem:lyapunov} gives the **strict** drop
+\begin{equation}\label{eq:strict-drop}
+\mathcal E_k(x_\star)-\mathcal E_{k+1}(x_\star)
+;\ge;\frac{L}{2},|z_{k+1}-z_k|^2 ;+; t_k\bigl(f(y_k)-f(x_{k+1})\bigr),
+\end{equation}
+and by the one–step gradient inequality for (L)-smooth (f),
+[
+f(y_k)-f(x_{k+1});\ge;\frac{L}{2},|y_k-x_{k+1}|^2 .
+]
+Hence
+\begin{equation}\label{eq:summable}
+\sum_{k\ge0}|z_{k+1}-z_k|^2<\infty
+\quad\text{and}\quad
+\sum_{k\ge0} t_k,|y_k-x_{k+1}|^2<\infty.
+\end{equation}
+Because (t_k\ge1) (indeed (t_{k+1}>!t_k) under (t_{k+1}^2-t_{k+1}\le t_k^2) and (t_0=1)), \eqref{eq:summable} implies
+\begin{equation}\label{eq:vanish}
+|y_k-x_{k+1}|;\to;0
+\qquad\text{and}\qquad
+|z_{k+1}-z_k|;\to;0 .
+\end{equation}
+Since (x_{k+1}-y_k=-\tfrac1L\nabla f(y_k)), we also get
+\begin{equation}\label{eq:grad-vanish}
+\nabla f(y_k);\to;0 .
+\end{equation}
+
+---
+
+## 2) All cluster points are minimizers
+
+Because ({x_k}) is bounded (your lemma) and (|y_k-x_{k+1}|!\to!0), the sequences ({x_k}) and ({y_k}) have the same set of cluster points.
+If (x_{k_j}\to\bar x), then (y_{k_j-1}\to\bar x) and by \eqref{eq:grad-vanish} we have (\nabla f(y_{k_j-1})\to0). Continuity of (\nabla f) gives (\nabla f(\bar x)=0). Since (f) is convex, (\bar x\in S). Thus **every** cluster point of ({x_k}) (and of ({y_k})) is a minimizer.
+
+---
+
+## 3) A linear recursion for “difference of distances”
+
+Fix any two minimizers (z_1,z_2\in S) and define
+[
+u_k:=|x_k-z_1|^2-|x_k-z_2|^2,
+\qquad
+H_k:=\mathcal E_k(z_1)-\mathcal E_k(z_2)
+=\frac{L}{2}\Big(|z_k-z_1|^2-|z_k-z_2|^2\Big).
+]
+From Lemma \ref{lem:equiv} we have the identity
+[
+x_{k+1}=\Bigl(1-\frac{1}{t_k}\Bigr)x_k+\frac{1}{t_k}z_{k+1}.
+]
+Using the variance formula (|au+bv|^2=a|u|^2+b|v|^2-ab|u-v|^2) for (a+b=1), applied with (u=x_k-z), (v=z_{k+1}-z) and (a=1-\tfrac1{t_k}), (b=\tfrac1{t_k}), we obtain for each fixed (z)
+[
+|x_{k+1}-z|^2
+=\Bigl(1-\frac1{t_k}\Bigr)|x_k-z|^2
++\frac1{t_k}|z_{k+1}-z|^2
+-\frac1{t_k}\Bigl(1-\frac1{t_k}\Bigr)|z_{k+1}-x_k|^2.
+]
+Subtracting the instances (z=z_1) and (z=z_2) cancels the last term (it does not depend on (z)) and yields the **exact** linear recursion
+\begin{equation}\label{eq:lin-u}
+u_{k+1}
+=\Bigl(1-\frac1{t_k}\Bigr)u_k+\frac{1}{t_k}\Big(|z_{k+1}-z_1|^2-|z_{k+1}-z_2|^2\Big)
+=\Bigl(1-\frac1{t_k}\Bigr)u_k+\frac{2}{L,t_k}H_{k+1}.
+\end{equation}
+
+Since (\mathcal E_k(z_i)) converges for (i=1,2) (Lemma \ref{lem:lyapunov}), the difference (H_k) converges to some finite (H_\infty).
+
+---
+
+## 4) Convergence of (u_k)
+
+Rewrite \eqref{eq:lin-u} as
+[
+u_{k+1}-\frac{2}{L}H_\infty
+=\Bigl(1-\frac1{t_k}\Bigr)!\Bigl(u_k-\frac{2}{L}H_\infty\Bigr)
++\frac{2}{L,t_k}\bigl(H_{k+1}-H_\infty\bigr).
+]
+Set (w_k:=u_k-\tfrac{2}{L}H_\infty), (\alpha_k:=1/t_k\in(0,1]), and (e_k:=\tfrac{2}{L}(H_{k+1}-H_\infty)\to0).
+Then (w_{k+1}=(1-\alpha_k)w_k+\alpha_k e_k). Because (t_{k+1}^2-t_{k+1}\le t_k^2) with (t_0=1) forces (t_k\uparrow\infty) and (\sum_k\alpha_k=\sum_k\frac1{t_k}=+\infty), a standard averaging argument gives (w_k\to0). (Proof sketch: fix (\varepsilon>0), take (K) with (|e_k|\le\varepsilon) for (k\ge K); iterate the relation and note that (\prod_{j=K}^{n-1}(1-\alpha_j)\to0) as (n\to\infty) because (\sum\alpha_j=+\infty).)
+
+Therefore the limit (\lim_{k\to\infty}u_k) exists:
+[
+u_k\longrightarrow \frac{2}{L},H_\infty\qquad\text{as }k\to\infty.
+]
+
+---
+
+## 5) Uniqueness of the cluster point (\Rightarrow) convergence of ({x_k})
+
+Assume by contradiction that ({x_k}) has two distinct cluster points (p\neq q) in (S). Take subsequences (x_{k_j}\to p) and (x_{\ell_j}\to q).
+Choose (z_1=p), (z_2=q) in the definition of (u_k). Then
+[
+\lim_{j\to\infty}u_{k_j}
+=|p-p|^2-|p-q|^2
+=-|p-q|^2,
+\qquad
+\lim_{j\to\infty}u_{\ell_j}
+=|q-p|^2-|q-q|^2
+=|p-q|^2.
+]
+But (u_k) has a **single** limit; hence (|p-q|=0), a contradiction.
+Thus ({x_k}) has only one cluster point, and hence
+[
+x_k\longrightarrow x_\infty\in S.
+]
+
+---
+
+## 6) Convergence of ({y_k}) to the same limit
+
+From \eqref{eq:vanish}, (|y_k-x_{k+1}|\to0), and we already have (x_{k+1}\to x_\infty). Therefore
+[
+y_k\longrightarrow x_\infty.
+]
+
+This proves Theorem \ref{thm:nag}.  (\square)
+
+---
+
+### Two brief remarks
+
+1. The argument did **not** assume uniqueness of the minimizer; it shows that the NAG iterates select one minimizer and converge to it.
+2. The relation \eqref{eq:lin-u} is the discrete analogue of the linear ODE you used for the continuous‑time Nesterov flow (it is exactly the same “energy‑difference drives distance‑difference” mechanism).
+
+2. Prompt: In step 4, don’t do a proof sketch. Make the arguments rigorous
+Answer: Below I prove Theorem \ref{thm:nag} using only the ingredients you already stated (the equivalent three‑sequence form and the Lyapunov function).  The key steps are:
+
+* a “strict” energy drop that forces the gradient residual to vanish and keeps the auxiliary sequence ({z_k}) almost stationary,
+* a short linear recursion showing that the **difference of squared distances of (x_k) to any two minimizers** has a limit, and
+* an Opial-type contradiction argument (as in your ODE proof) to rule out more than one cluster point.
+
+Throughout let (S:=\arg\min f\neq\emptyset), fix any (x_\star\in S), and write (f_\star=f(x_\star)).
+
+---
+
+## 1) A strict energy drop and two consequences
+
+Recall the Lyapunov energy (Lemma \ref{lem:lyapunov})
+[
+\mathcal E_k(x_\star);=;t_{k-1}^2\bigl(f(x_k)-f_\star\bigr);+;\frac{L}{2},|z_k-x_\star|^2
+\qquad(k\ge0),
+]
+which is nonincreasing provided (t_{k+1}^2-t_{k+1}\le t_k^2).
+
+In fact, the standard proof of Lemma \ref{lem:lyapunov} gives the **strict** drop
+\begin{equation}\label{eq:strict-drop}
+\mathcal E_k(x_\star)-\mathcal E_{k+1}(x_\star)
+;\ge;\frac{L}{2},|z_{k+1}-z_k|^2 ;+; t_k\bigl(f(y_k)-f(x_{k+1})\bigr),
+\end{equation}
+and by the one–step gradient inequality for (L)-smooth (f),
+[
+f(y_k)-f(x_{k+1});\ge;\frac{L}{2},|y_k-x_{k+1}|^2 .
+]
+Hence
+\begin{equation}\label{eq:summable}
+\sum_{k\ge0}|z_{k+1}-z_k|^2<\infty
+\quad\text{and}\quad
+\sum_{k\ge0} t_k,|y_k-x_{k+1}|^2<\infty.
+\end{equation}
+Because (t_k\ge1) (indeed (t_{k+1}>!t_k) under (t_{k+1}^2-t_{k+1}\le t_k^2) and (t_0=1)), \eqref{eq:summable} implies
+\begin{equation}\label{eq:vanish}
+|y_k-x_{k+1}|;\to;0
+\qquad\text{and}\qquad
+|z_{k+1}-z_k|;\to;0 .
+\end{equation}
+Since (x_{k+1}-y_k=-\tfrac1L\nabla f(y_k)), we also get
+\begin{equation}\label{eq:grad-vanish}
+\nabla f(y_k);\to;0 .
+\end{equation}
+
+---
+
+## 2) All cluster points are minimizers
+
+Because ({x_k}) is bounded (your lemma) and (|y_k-x_{k+1}|!\to!0), the sequences ({x_k}) and ({y_k}) have the same set of cluster points.
+If (x_{k_j}\to\bar x), then (y_{k_j-1}\to\bar x) and by \eqref{eq:grad-vanish} we have (\nabla f(y_{k_j-1})\to0). Continuity of (\nabla f) gives (\nabla f(\bar x)=0). Since (f) is convex, (\bar x\in S). Thus **every** cluster point of ({x_k}) (and of ({y_k})) is a minimizer.
+
+---
+
+## 3) A linear recursion for “difference of distances”
+
+Fix any two minimizers (z_1,z_2\in S) and define
+[
+u_k:=|x_k-z_1|^2-|x_k-z_2|^2,
+\qquad
+H_k:=\mathcal E_k(z_1)-\mathcal E_k(z_2)
+=\frac{L}{2}\Big(|z_k-z_1|^2-|z_k-z_2|^2\Big).
+]
+From Lemma \ref{lem:equiv} we have the identity
+[
+x_{k+1}=\Bigl(1-\frac{1}{t_k}\Bigr)x_k+\frac{1}{t_k}z_{k+1}.
+]
+Using the variance formula (|au+bv|^2=a|u|^2+b|v|^2-ab|u-v|^2) for (a+b=1), applied with (u=x_k-z), (v=z_{k+1}-z) and (a=1-\tfrac1{t_k}), (b=\tfrac1{t_k}), we obtain for each fixed (z)
+[
+|x_{k+1}-z|^2
+=\Bigl(1-\frac1{t_k}\Bigr)|x_k-z|^2
++\frac1{t_k}|z_{k+1}-z|^2
+-\frac1{t_k}\Bigl(1-\frac1{t_k}\Bigr)|z_{k+1}-x_k|^2.
+]
+Subtracting the instances (z=z_1) and (z=z_2) cancels the last term (it does not depend on (z)) and yields the **exact** linear recursion
+\begin{equation}\label{eq:lin-u}
+u_{k+1}
+=\Bigl(1-\frac1{t_k}\Bigr)u_k+\frac{1}{t_k}\Big(|z_{k+1}-z_1|^2-|z_{k+1}-z_2|^2\Big)
+=\Bigl(1-\frac1{t_k}\Bigr)u_k+\frac{2}{L,t_k}H_{k+1}.
+\end{equation}
+
+Since (\mathcal E_k(z_i)) converges for (i=1,2) (Lemma \ref{lem:lyapunov}), the difference (H_k) converges to some finite (H_\infty).
+
+---
+
+## 4) Convergence of (u_k)
+
+Rewrite \eqref{eq:lin-u} as
+[
+u_{k+1}-\frac{2}{L}H_\infty
+=\Bigl(1-\frac1{t_k}\Bigr)!\Bigl(u_k-\frac{2}{L}H_\infty\Bigr)
++\frac{2}{L,t_k}\bigl(H_{k+1}-H_\infty\bigr).
+]
+Set (w_k:=u_k-\tfrac{2}{L}H_\infty), (\alpha_k:=1/t_k\in(0,1]), and (e_k:=\tfrac{2}{L}(H_{k+1}-H_\infty)\to0).
+Then (w_{k+1}=(1-\alpha_k)w_k+\alpha_k e_k). Because (t_{k+1}^2-t_{k+1}\le t_k^2) with (t_0=1) forces (t_k\uparrow\infty) and (\sum_k\alpha_k=\sum_k\frac1{t_k}=+\infty), a standard averaging argument gives (w_k\to0). (Proof sketch: fix (\varepsilon>0), take (K) with (|e_k|\le\varepsilon) for (k\ge K); iterate the relation and note that (\prod_{j=K}^{n-1}(1-\alpha_j)\to0) as (n\to\infty) because (\sum\alpha_j=+\infty).)
+
+Therefore the limit (\lim_{k\to\infty}u_k) exists:
+[
+u_k\longrightarrow \frac{2}{L},H_\infty\qquad\text{as }k\to\infty.
+]
+
+---
+
+## 5) Uniqueness of the cluster point (\Rightarrow) convergence of ({x_k})
+
+Assume by contradiction that ({x_k}) has two distinct cluster points (p\neq q) in (S). Take subsequences (x_{k_j}\to p) and (x_{\ell_j}\to q).
+Choose (z_1=p), (z_2=q) in the definition of (u_k). Then
+[
+\lim_{j\to\infty}u_{k_j}
+=|p-p|^2-|p-q|^2
+=-|p-q|^2,
+\qquad
+\lim_{j\to\infty}u_{\ell_j}
+=|q-p|^2-|q-q|^2
+=|p-q|^2.
+]
+But (u_k) has a **single** limit; hence (|p-q|=0), a contradiction.
+Thus ({x_k}) has only one cluster point, and hence
+[
+x_k\longrightarrow x_\infty\in S.
+]
+
+---
+
+## 6) Convergence of ({y_k}) to the same limit
+
+From \eqref{eq:vanish}, (|y_k-x_{k+1}|\to0), and we already have (x_{k+1}\to x_\infty). Therefore
+[
+y_k\longrightarrow x_\infty.
+]
+
+This proves Theorem \ref{thm:nag}.  (\square)
+
+---
+
+### Two brief remarks
+
+1. The argument did **not** assume uniqueness of the minimizer; it shows that the NAG iterates select one minimizer and converge to it.
+2. The relation \eqref{eq:lin-u} is the discrete analogue of the linear ODE you used for the continuous‑time Nesterov flow (it is exactly the same “energy‑difference drives distance‑difference” mechanism).
+
+3. Prompt: Can you explain what is going on with this proof?
+Answer: Sure — let’s unpack **what’s really happening** in that Step 4 proof and why all those manipulations are needed.
+
+---
+
+### 🎯 Goal of Step 4
+
+We want to show that
+[
+u_k = |x_k-z_1|^2 - |x_k-z_2|^2
+]
+**converges** as (k \to \infty).
+
+This is crucial because in the final step of the proof, if (u_k) has a limit, two different cluster points of ({x_k}) would force two different limiting values of (u_k) — impossible unless the two cluster points coincide.
+
+---
+
+### 🧩 Step 1 — A recurrence for (u_k)
+
+From the NAG algebra (and the three-sequence equivalent form), we derived the *exact* recursion:
+[
+u_{k+1} = \Bigl(1-\frac{1}{t_k}\Bigr)u_k + \frac{1}{t_k}g_{k+1},
+\quad\text{where } g_k = \frac{2}{L}H_k,
+]
+and (H_k = \mathcal E_k(z_1) - \mathcal E_k(z_2)).
+
+So (u_k) is a kind of **weighted average** between its previous value and a slowly varying “forcing term” (g_{k+1}).
+
+---
+
+### ⚙️ Step 2 — Properties of (g_k)
+
+The Lyapunov energies (\mathcal E_k(z_i)) are **monotone nonincreasing**, so both sequences converge.
+Thus (H_k) (and (g_k)) converge, and the differences (g_{k+1} - g_k) are **summable**.
+
+That is,
+[
+\sum_k |g_{k+1}-g_k| < \infty.
+]
+
+This means the forcing term (g_k) changes less and less over time — essentially it becomes constant asymptotically.
+
+---
+
+### 🔁 Step 3 — Rewriting the recursion
+
+We subtract (g_{k+1}) from both sides to isolate the “residual” (v_k := u_k - g_k):
+[
+v_{k+1} = \Bigl(1-\frac{1}{t_k}\Bigr)v_k + \Bigl(1-\frac{1}{t_k}\Bigr)(g_k - g_{k+1}).
+]
+
+This is a *nonhomogeneous linear recursion* with a perturbation term ((g_k - g_{k+1})) that is absolutely summable.
+
+The coefficients (\rho_k := 1 - 1/t_k) lie in ([0,1)), and (t_k \ge 1) (so (\rho_k) is indeed a “weight” less than 1).
+
+---
+
+### 📉 Step 4 — Unrolling the recursion
+
+If we unroll that recursion, we get
+[
+v_n
+= \Big(\prod_{i=0}^{n-1}\rho_i\Big)v_0
+
+* \sum_{j=0}^{n-1}\Big(\prod_{i=j+1}^{n-1}\rho_i\Big)\rho_j (g_j - g_{j+1}).
+  ]
+
+The first term is just a scaled-down version of the initial value (v_0).
+The second term is a weighted sum of the small differences (g_j - g_{j+1}).
+
+---
+
+### 🧠 Step 5 — Why it converges
+
+* The product (\prod_{i=j+1}^{n-1}\rho_i) is **bounded by 1** and monotone in (n).
+  Thus for each fixed (j), it converges as (n\to\infty).
+
+* Because the coefficients are bounded and (\sum |g_j-g_{j+1}|<\infty), the infinite sum
+  (\sum_j P_{j+1,\infty}\rho_j(g_j-g_{j+1})) converges absolutely.
+
+So the right-hand side tends to a finite limit. Hence (v_n) converges.
+
+Since (u_n = v_n + g_n) and both parts converge, (u_n) converges as well.
+
+---
+
+### 🧭 Step 6 — What it means conceptually
+
+You can think of this as an **“averaging process with a slowly moving target”**:
+
+* (u_{k+1}) is a convex combination of its old value (u_k) and a nearly constant sequence (g_{k+1}).
+* If the weights (\frac{1}{t_k}) go to 0 but are not summable ((\sum 1/t_k = \infty)), then (u_k) keeps averaging forever.
+* Because (g_k) itself settles to a constant, (u_k) is “dragged along” and must settle to the same limit.
+
+So the algebraic unfolding just formalizes that intuition rigorously.
+
+---
+
+### 🧩 Summary in one line
+
+Step 4 shows rigorously that a recursion of the form
+[
+u_{k+1}=(1-\alpha_k)u_k+\alpha_k g_{k+1},\quad
+\alpha_k>0,\ \sum\alpha_k=\infty,\ g_k\to g_\infty,
+]
+forces (u_k\to g_\infty).
+
+Here, the detailed series expansion and summability arguments ensure that all limits and infinite products exist and no handwaving is left.
+4. 

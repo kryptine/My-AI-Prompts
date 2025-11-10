@@ -1,0 +1,3 @@
+1. Normal Modal Logic https://github.com/OpenLogicProject/OpenLogic/tree/master/content/normal-modal-logic
+2. Notes on deontic logic https://www.ontology.co/essays/deontic-logic.pdf
+Treating O as representing square and P as representing diamond, please recast the contents of the "notes on deontic logic" in terms of the exact notation of "normal modal logic", and formalize and prove the theorems and lemmas in the notes on deontic logic in the language of the book "normal modal logic", and formalize "normal modal logic" in Isabelle/HOL, Coq, Agda and Lean4.

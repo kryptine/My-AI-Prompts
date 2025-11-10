@@ -1,0 +1,5 @@
+1. Finite Factored Sets https://arxiv.org/abs/2109.11513
+2. Coarse Set Theory for AI Ethics and Decision-Making: A Mathematical Framework for Granular Evaluations https://arxiv.org/html/2502.07347v4
+3. Cartesian Frames https://arxiv.org/abs/2109.10996
+Can you help me write the the SMT-LIB 2, Agda, Coq and Lean4 formalizations of these papers at least with placeholders like `admit` and `sorry` if the thing is too big to fit within the context window, but also provide a copiable infobox that summarizes the content and the APIs so that it can be used to formalize further parts by copying into other chats, from now until completion, although you do not need a complete roadmap now. I want the content to be as formal as possible by using formal syntax instead of identifiers, and avoid defining new types and other primitives, choosing to use generic ones like vectors, lists, matrices, etc. instead. Please explain the content in natural language and formal mathematical exposition in SMT-LIB 2, Agda, Coq and Lean4 alternately.
+Please anchor your formalizations in the content of the uploaded formalization in HOL at https://github.com/google-deepmind/cartesian-frames

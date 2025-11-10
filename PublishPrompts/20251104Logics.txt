@@ -1,0 +1,10 @@
+1. A priori Belief Updates as a Method for Agent Self-recovery https://arxiv.org/html/2312.06471v1 https://rap-journal.net/article/21/
+2. Logics for Personalized Announcements and Attention Dynamics https://rap-journal.net/article/20/
+3. The Right to Know: A Logical Analysis https://rap-journal.net/article/23/
+4. Approximate common knowledge revisited https://link.springer.com/article/10.1007/s001820050116 https://economics.sas.upenn.edu/pier/working-paper/1996/approximate-common-knowledge
+5. Approximate Common Knowledge Based on Uncertain Measure https://aisel.aisnet.org/iceb2009/140/
+6. Rationalizability and Approximate Common Knowledge https://www.kellogg.northwestern.edu/research/math/papers/1324.pdf
+Requests:
+1. For formalizations and explanations, please generalize all definitions of approximate common knowledge to cases in which there are more than 2 players, including infinitely many players through things like for-all quantifications over players if mathematically meaningful and possible. 
+2. Explain how the the logical analysis of the right to know corroborates the fundamental results of agent self-recovery and the logics for personalized announcements and attention dynamics.
+3. Can you help me write the the SMT-LIB 2, Agda, Coq and Lean4 formalizations of the main definitions, theorems, and proofs, that is, the repeated concepts should be done once, with the theorems formalized, at least with placeholders like `admit` and `sorry` if the thing is too big, but if it's incomplete, also provide a copiable infobox that summarizes the content and the APIs so that it can be used to formalize further parts by copying into other chats, from now until completion, although you do not need a complete roadmap now. I want the content to be as formal as possible by using formal syntax instead of identifiers, and avoid defining new types and other primitives, choosing to use generic ones like vectors, lists, matrices, etc. instead. Please explain the content in natural language and formal mathematical exposition in SMT-LIB 2, Agda, Coq and Lean4 alternately.

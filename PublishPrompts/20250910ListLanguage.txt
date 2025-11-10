@@ -1,0 +1,6 @@
+1. A Characterization of List Language Identification in the Limit https://arxiv.org/html/2511.04103v1
+2. Characterizations of Language Generation With Breadth https://arxiv.org/html/2412.18530v1
+3. Generation from Noisy Examples https://arxiv.org/html/2501.04179v2
+Requests:
+1. Please show me how the contents of the papers about language identification in the limit relate to each other in terms of equivalences
+2. Can you help me write the the SMT-LIB 2, Agda, Coq and Lean4 formalizations of the main definitions, theorems, and proofs, that is, the repeated concepts should be done once, with the theorems formalized, at least with placeholders like `admit` and `sorry` if the thing is too big, but if it's incomplete, also provide a copiable infobox that summarizes the content and the APIs so that it can be used to formalize further parts by copying into other chats, from now until completion, although you do not need a complete roadmap now. I want the content to be as formal as possible by using formal syntax instead of identifiers, and avoid defining new types and other primitives, choosing to use generic ones like vectors, lists, matrices, etc. instead. Please explain the content in natural language and formal mathematical exposition in SMT-LIB 2, Agda, Coq and Lean4 alternately.

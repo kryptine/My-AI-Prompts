@@ -1,0 +1,2 @@
+1. Logic-based specification and verification of homogeneous dynamic multi-agent systems https://link.springer.com/article/10.1007/s10458-020-09457-8
+2. Deontic Logic for Strategic Games https://link.springer.com/article/10.1007/s10670-011-9349-0

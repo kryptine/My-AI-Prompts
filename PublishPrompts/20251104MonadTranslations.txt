@@ -1,0 +1,9 @@
+1. Monad Translations for Higher-Order Logic https://drops.dagstuhl.de/storage/00lipics/lipics-vol337-fscd2025/LIPIcs.FSCD.2025.34/LIPIcs.FSCD.2025.34.pdf
+2. Kuroda’s Translation for the λΠ-Calculus Modulo Theory and Dedukti https://arxiv.org/abs/2407.06626 https://github.com/Deducteam/Construkti/blob/master/kuroda.dk https://github.com/Deducteam/Construkti/blob/master/logic.dk
+3. The Peirce translation https://www.sciencedirect.com/science/article/pii/S0168007211001667
+4. Kuroda's Translation for Higher-Order Logic https://arxiv.org/abs/2404.19503
+5. A Kuroda-style j-translation https://link.springer.com/article/10.1007/s00153-018-0656-x
+6. Deontic Logic for Strategic Games https://link.springer.com/article/10.1007/s10670-011-9349-0
+Requests:
+1. Please show me how the contents of the papers are related to each other, and extend this to the translation of deontic logic to alethic logic in a similar way to Peirce's Kuroda's and monad translations using the Obligatory monad as the wrapper analogous to the double negative wrapper and the exclamation mark wrapper.
+2. Can you help me write the the SMT-LIB 2, Agda, Coq and Lean4 formalizations of the main definitions, theorems, and proofs, that is, the repeated concepts should be done once, with the theorems formalized, at least with placeholders like `admit` and `sorry` if the thing is too big, but if it's incomplete, also provide a copiable infobox that summarizes the content and the APIs so that it can be used to formalize further parts by copying into other chats, from now until completion, although you do not need a complete roadmap now. I want the content to be as formal as possible by using formal syntax instead of identifiers, and avoid defining new types and other primitives, choosing to use generic ones like vectors, lists, matrices, etc. instead. Please explain the content in natural language and formal mathematical exposition in SMT-LIB 2, Agda, Coq and Lean4 alternately.
